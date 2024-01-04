@@ -22,27 +22,6 @@
     die;
  }
 
- // Hook to add the custom menu
-add_action('admin_menu', 'custom_admin_menu');
+ require_once plugin_dir_path( __FILE__ ). 'admin-menu.php';
 
-// Function to create the custom menu
-function custom_admin_menu() {
-    add_menu_page(
-        'Custom Menu',          // Page title
-        'Custom Menu',          // Menu title
-        'manage_options',       // Capability
-        'custom-menu',          // Menu slug
-        'custom_menu_contents',  // Callback function to display the menu page
-        'dashicons-welcome-learn-more' // Icon URL or Dashicon class
-    );
-}
-
-// Callback function to display the menu page
-function custom_menu_contents() {
-    ?>
-    <div class="custom-menu-content">
-        <h1>Custom Menu</h1>
-        <p>This is your custom menu page content.</p>
-    </div>
-    <?php
-}
+ ?>
