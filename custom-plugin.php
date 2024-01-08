@@ -17,11 +17,11 @@
  */
 
  // If this file is called directly, abort.
- if (! defined( 'WPINC' ) ) {
-    echo 'No script kiddies please!';
-    die;
- }
+if (! defined( 'WPINC' ) ) {
+   echo 'No script kiddies please!';
+   die;
+}
 
- require_once plugin_dir_path( __FILE__ ). 'admin-menu.php';
+require_once plugin_dir_path( __FILE__ ). 'admin-menu.php';
 
  ?>

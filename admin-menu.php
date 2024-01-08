@@ -9,10 +9,10 @@ function custom_admin_menu() {
     add_menu_page(
         'Custom Menu',          // Page title
         'Custom Menu',          // Menu title
-        'manage_options',       // Capability
+        'read',       // Capability
         'custom-menu',          // Menu slug
-        'custom_menu_display', // Callback function to display the menu page
-        'dashicons-chart-bar'   // Icon URL or Dashicon class
+        False, // Callback function to display the menu page
+        'dashicons-admin-site',   // Icon URL or Dashicon class
     );
 
     // Add submenu
@@ -21,27 +21,27 @@ function custom_admin_menu() {
         'Custom Submenu',       // Page title
         'Custom Submenu',       // Menu title
         'manage_options',       // Capability
-        'custom-submenu',       // Menu slug
+        'custom-menu',       // Menu slug
         'custom_submenu_display' // Callback function to display the submenu page
+    );
+
+    // Add another submenu
+    add_submenu_page(
+        'custom-menu',          // Parent menu slug
+        'Another Submenu',       // Page title
+        'Another Submenu',       // Menu title
+        'manage_options',       // Capability
+        'another-submenu',       // Menu slug
+        'another_submenu_display' // Callback function to display the submenu page
     );
 }
 
-// Callback function to display the menu page
-function custom_menu_display() {
-    ?>
-    <div class="wrap">
-        <h2>Custom Menu</h2>
-        <p>This is my custom menu page content.</p>
-    </div>
-    <?php
+// Function to display the custom submenu page
+function custom_submenu_display() {
+    require_once plugin_dir_path( __FILE__ ). 'custom-submenu.php';
 }
 
-// Callback function to display the submenu page
-function custom_submenu_display() {
-    ?>
-    <div class="wrap">
-        <h2>Custom Submenu</h2>
-        <p>This is my custom submenu page content.</p>
-    </div>
-    <?php
+// Function to display the another submenu page
+function another_submenu_display() {
+    require_once plugin_dir_path( __FILE__ ). 'another-submenu.php';
 }
